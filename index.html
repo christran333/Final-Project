@@ -160,7 +160,7 @@
       var bg = mixColor(person.bg, generic.bg, t);
       var textColor = mixColor(person.textColor, generic.textColor, t);
 
-      // swap text at different points
+    
       var name = t > 0.85 ? generic.name : person.name;
       var tag = t > 0.7 ? generic.tag : person.tag;
       var style = t > 0.65 ? generic.style : person.style;
@@ -172,7 +172,6 @@
 
       card.style.background = bg;
       card.style.border = '1px solid ' + mixColor(person.bg, '#2A2A2A', t);
-e
       var blur = t > 0.3 ? (t - 0.3) * 2 : 0;
       card.style.filter = 'blur(' + blur + 'px)';
 
