@@ -5,194 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Copy/Paste</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #111;
-      font-family: 'Space Mono', monospace;
-      color: #ccc;
-    }
-
-    /* intro screen */
-    #intro {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    #intro h1 {
-      font-size: 48px;
-      color: #eee;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
-    }
-
-    #intro p {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 40px;
-    }
-
-    button {
-      background: none;
-      border: 1px solid #333;
-      color: #888;
-      padding: 12px 36px;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    button:hover {
-      background: #222;
-      color: #ccc;
-      border-color: #555;
-    }
-
-    /* card screen */
-    #card-screen {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-      width: 100%;
-    }
-
-    #status {
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #555;
-      margin-bottom: 30px;
-      transition: color 0.5s;
-    }
-
-    /* the card */
-    .card {
-      width: 280px;
-      min-height: 380px;
-      padding: 24px;
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-tag {
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.5;
-      transition: opacity 0.5s;
-    }
-
-    .card-name {
-      font-size: 26px;
-      font-weight: 700;
-      line-height: 1.1;
-      transition: all 0.5s;
-    }
-
-    .card-divider {
-      width: 40px;
-      height: 2px;
-      transition: all 0.5s;
-    }
-
-    .card-info {
-      font-size: 11px;
-      line-height: 1.8;
-      transition: all 0.5s;
-    }
-
-    .card-info .label {
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.4;
-    }
-
-    .card-quote {
-      margin-top: auto;
-      font-size: 11px;
-      font-style: italic;
-      line-height: 1.6;
-      padding-top: 12px;
-      transition: all 0.5s;
-      opacity: 0.7;
-    }
-
-    /* decoration that fades */
-    .card-deco {
-      position: absolute;
-      pointer-events: none;
-      transition: opacity 0.5s;
-    }
-
-    #next-btn {
-      margin-top: 30px;
-    }
-
-    #counter {
-      margin-top: 10px;
-      font-size: 10px;
-      color: #444;
-    }
-
-    /* end screen */
-    #end-screen {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    #end-screen h2 {
-      font-size: 22px;
-      color: #555;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
-
-    #end-screen .faded-list {
-      color: #333;
-      font-size: 12px;
-      line-height: 2;
-      margin-bottom: 16px;
-    }
-
-    #end-screen .faded-list span {
-      text-decoration: line-through;
-    }
-
-    #end-screen .final-msg {
-      color: #555;
-      font-size: 12px;
-      line-height: 2;
-      margin-bottom: 40px;
-      max-width: 400px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -234,7 +47,7 @@
   </div>
 
   <script>
-    // all the people
+    // all the people and their unique info
     var people = [
       {
         name: "Zara",
@@ -245,8 +58,6 @@
         quote: "I found this jacket in a dumpster behind a theater",
         bg: "#E85D26",
         textColor: "#fff",
-        dimColor: "#fff8",
-        dividerColor: "#fff6",
         decoText: "THRIFT",
         decoStyle: "top:10px;right:14px;font-size:42px;opacity:0.1;font-weight:700;color:#fff;transform:rotate(8deg);"
       },
@@ -259,8 +70,6 @@
         quote: "Music should make you uncomfortable",
         bg: "#1565C0",
         textColor: "#E3F2FD",
-        dimColor: "#90CAF9aa",
-        dividerColor: "#90CAF966",
         decoText: ">//",
         decoStyle: "bottom:14px;right:14px;font-size:11px;opacity:0.3;color:#90CAF9;letter-spacing:4px;"
       },
@@ -273,8 +82,6 @@
         quote: "My grandmother's sari is my moodboard",
         bg: "#D4AF37",
         textColor: "#2E1500",
-        dimColor: "#2E150099",
-        dividerColor: "#2E150044",
         decoText: "✦",
         decoStyle: "top:14px;right:18px;font-size:36px;opacity:0.15;color:#2E1500;"
       },
@@ -287,8 +94,6 @@
         quote: "I screen printed this shirt with stolen ink",
         bg: "#C62828",
         textColor: "#FFEBEE",
-        dimColor: "#FFCDD2aa",
-        dividerColor: "#FFCDD266",
         decoText: "X",
         decoStyle: "top:8px;right:16px;font-size:56px;opacity:0.1;font-weight:700;color:#fff;transform:rotate(-12deg);"
       },
@@ -301,8 +106,6 @@
         quote: "I grew the plants I used to dye this fabric",
         bg: "#2E7D32",
         textColor: "#E8F5E9",
-        dimColor: "#C8E6C9aa",
-        dividerColor: "#C8E6C966",
         decoText: "~",
         decoStyle: "bottom:14px;right:18px;font-size:40px;opacity:0.2;color:#E8F5E9;"
       },
@@ -315,8 +118,6 @@
         quote: "This board has more personality than most people",
         bg: "#7B1FA2",
         textColor: "#F3E5F5",
-        dimColor: "#E1BEE7aa",
-        dividerColor: "#E1BEE766",
         decoText: "SK8",
         decoStyle: "bottom:12px;right:14px;font-size:14px;opacity:0.2;color:#E1BEE7;letter-spacing:4px;transform:rotate(-4deg);"
       },
@@ -329,8 +130,6 @@
         quote: "Destruction is just another form of creation",
         bg: "#D81B60",
         textColor: "#FCE4EC",
-        dimColor: "#F8BBD0aa",
-        dividerColor: "#F8BBD066",
         decoText: "//",
         decoStyle: "top:50%;left:14px;font-size:18px;opacity:0.15;color:#F8BBD0;transform:rotate(90deg);"
       },
@@ -343,8 +142,6 @@
         quote: "Every pattern tells a story you have to earn",
         bg: "#EF6C00",
         textColor: "#fff",
-        dimColor: "#fff8",
-        dividerColor: "#fff4",
         decoText: "◆",
         decoStyle: "top:12px;right:16px;font-size:28px;opacity:0.15;color:#fff;"
       }
@@ -359,29 +156,27 @@
       energy: "Curated, optimized, algorithm-friendly",
       quote: "Link in bio",
       bg: "#1E1E1E",
-      textColor: "#666",
-      dimColor: "#44444488",
-      dividerColor: "#33333366"
+      textColor: "#666"
     };
 
     var currentIndex = 0;
     var swipeCount = 0;
     var totalSwipes = 24;
 
-    // how blended toward generic (0 = original, 1 = fully generic)
+    // returns 0 to 1 based on how far through the experience we are
     function getBlend() {
       return Math.min(1, swipeCount / (totalSwipes * 0.7));
     }
 
-    // mix two hex colors
+    // mix two hex colors together by an amount (0 = first color, 1 = second color)
     function mixColor(color1, color2, amount) {
-      // strip # and handle short colors
       var c1 = color1.replace('#', '').slice(0, 6);
       var c2 = color2.replace('#', '').slice(0, 6);
 
       var r1 = parseInt(c1.slice(0, 2), 16);
       var g1 = parseInt(c1.slice(2, 4), 16);
       var b1 = parseInt(c1.slice(4, 6), 16);
+
       var r2 = parseInt(c2.slice(0, 2), 16);
       var g2 = parseInt(c2.slice(2, 4), 16);
       var b2 = parseInt(c2.slice(4, 6), 16);
@@ -395,17 +190,17 @@
              b.toString(16).padStart(2, '0');
     }
 
-    // show the current card
+    // render the current card
     function showCard() {
       var person = people[currentIndex];
       var t = getBlend();
       var card = document.getElementById('card');
 
-      // blend colors between person and generic
+      // blend the colors toward generic
       var bg = mixColor(person.bg, generic.bg, t);
       var textColor = mixColor(person.textColor, generic.textColor, t);
 
-      // swap text content at different thresholds
+      // swap text at different thresholds so it doesnt all change at once
       var name = t > 0.85 ? generic.name : person.name;
       var tag = t > 0.7 ? generic.tag : person.tag;
       var style = t > 0.65 ? generic.style : person.style;
@@ -413,12 +208,14 @@
       var energy = t > 0.5 ? generic.energy : person.energy;
       var quote = t > 0.7 ? generic.quote : person.quote;
 
-      // decoration fades out
+      // the little decoration fades out
       var decoOpacity = Math.max(0, 1 - t * 1.5);
 
+      // set card background
       card.style.background = bg;
       card.style.border = '1px solid ' + mixColor(person.bg, '#2A2A2A', t);
 
+      // build the card html
       card.innerHTML = ''
         + '<div class="card-deco" style="' + person.decoStyle + 'opacity:' + (decoOpacity * 0.15) + ';">' + person.decoText + '</div>'
         + '<div class="card-tag" style="color:' + textColor + ';opacity:' + (0.5 - t * 0.4) + ';">' + tag + '</div>'
@@ -431,7 +228,7 @@
         + '</div>'
         + '<div class="card-quote" style="color:' + textColor + ';border-top:1px solid ' + textColor + '22;opacity:' + (0.7 - t * 0.3) + ';">"' + quote + '"</div>';
 
-      // update status text
+      // update the status message
       var status = document.getElementById('status');
       if (t < 0.3) {
         status.textContent = 'everyone is unique';
@@ -451,11 +248,12 @@
       document.getElementById('counter').textContent = swipeCount + ' / ' + totalSwipes;
     }
 
-    // go to next card
+    // next card button
     function nextCard() {
       swipeCount++;
       currentIndex = (currentIndex + 1) % people.length;
 
+      // if we've gone through all swipes, show end screen
       if (swipeCount >= totalSwipes) {
         document.getElementById('card-screen').style.display = 'none';
         document.getElementById('end-screen').style.display = 'flex';
@@ -465,14 +263,14 @@
       showCard();
     }
 
-    // start the experience
+    // start button
     function start() {
       document.getElementById('intro').style.display = 'none';
       document.getElementById('card-screen').style.display = 'flex';
       showCard();
     }
 
-    // reset everything
+    // reset button on end screen
     function reset() {
       swipeCount = 0;
       currentIndex = 0;
