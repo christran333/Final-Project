@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- intro -->
   <div id="intro">
     <h1>copy/paste</h1>
     <p>
@@ -20,7 +19,6 @@
     <button onclick="start()">begin</button>
   </div>
 
-  <!-- card screen -->
   <div id="card-screen">
     <div id="status">everyone is unique</div>
     <div class="card" id="card"></div>
@@ -28,7 +26,6 @@
     <div id="counter">0 / 24</div>
   </div>
 
-  <!-- end screen -->
   <div id="end-screen">
     <h2>everyone looks the same now.</h2>
     <div class="faded-list">
@@ -47,160 +44,123 @@
   </div>
 
   <script>
-    // all the people and their unique info
+
     var people = [
       {
-        name: "Zara",
-        tag: "thrift queen",
-        style: "Thrifted maximalism",
-        music: "Experimental jazz",
+        name: "Zara", tag: "thrift queen",
+        style: "Thrifted maximalism", music: "Experimental jazz",
         energy: "Loud, unfiltered, makes art from trash",
         quote: "I found this jacket in a dumpster behind a theater",
-        bg: "#E85D26",
-        textColor: "#fff",
+        bg: "#E85D26", textColor: "#fff",
         decoText: "THRIFT",
         decoStyle: "top:10px;right:14px;font-size:42px;opacity:0.1;font-weight:700;color:#fff;transform:rotate(8deg);"
       },
       {
-        name: "Kai",
-        tag: "sys.user",
-        style: "Dark techwear",
-        music: "Industrial noise",
+        name: "Kai", tag: "sys.user",
+        style: "Dark techwear", music: "Industrial noise",
         energy: "Quiet, intense, codes their own synths",
         quote: "Music should make you uncomfortable",
-        bg: "#1565C0",
-        textColor: "#E3F2FD",
+        bg: "#1565C0", textColor: "#E3F2FD",
         decoText: ">//",
         decoStyle: "bottom:14px;right:14px;font-size:11px;opacity:0.3;color:#90CAF9;letter-spacing:4px;"
       },
       {
-        name: "Priya",
-        tag: "vintage glam",
-        style: "Vintage Bollywood glam",
-        music: "Psych rock + Carnatic fusion",
+        name: "Priya", tag: "vintage glam",
+        style: "Vintage Bollywood glam", music: "Psych rock + Carnatic fusion",
         energy: "Theatrical, generous, smells like sandalwood",
         quote: "My grandmother's sari is my moodboard",
-        bg: "#D4AF37",
-        textColor: "#2E1500",
+        bg: "#D4AF37", textColor: "#2E1500",
         decoText: "✦",
         decoStyle: "top:14px;right:18px;font-size:36px;opacity:0.15;color:#2E1500;"
       },
       {
-        name: "Marcus",
-        tag: "diy or die",
-        style: "DIY punk patches",
-        music: "Garage rock he recorded in a shed",
+        name: "Marcus", tag: "diy or die",
+        style: "DIY punk patches", music: "Garage rock he recorded in a shed",
         energy: "Confrontational, loyal, always has a zine on them",
         quote: "I screen printed this shirt with stolen ink",
-        bg: "#C62828",
-        textColor: "#FFEBEE",
+        bg: "#C62828", textColor: "#FFEBEE",
         decoText: "X",
         decoStyle: "top:8px;right:16px;font-size:56px;opacity:0.1;font-weight:700;color:#fff;transform:rotate(-12deg);"
       },
       {
-        name: "Soleil",
-        tag: "grown not made",
-        style: "Hand-dyed linen everything",
-        music: "Field recordings + ambient harp",
+        name: "Soleil", tag: "grown not made",
+        style: "Hand-dyed linen everything", music: "Field recordings + ambient harp",
         energy: "Gentle, deliberate, keeps a handwritten journal",
         quote: "I grew the plants I used to dye this fabric",
-        bg: "#2E7D32",
-        textColor: "#E8F5E9",
+        bg: "#2E7D32", textColor: "#E8F5E9",
         decoText: "~",
         decoStyle: "bottom:14px;right:18px;font-size:40px;opacity:0.2;color:#E8F5E9;"
       },
       {
-        name: "Devon",
-        tag: "3am club",
-        style: "90s skater meets art school",
-        music: "Lo-fi hip hop they produce at 3am",
+        name: "Devon", tag: "3am club",
+        style: "90s skater meets art school", music: "Lo-fi hip hop they produce at 3am",
         energy: "Effortlessly cool, sketches on receipts",
         quote: "This board has more personality than most people",
-        bg: "#7B1FA2",
-        textColor: "#F3E5F5",
+        bg: "#7B1FA2", textColor: "#F3E5F5",
         decoText: "SK8",
         decoStyle: "bottom:12px;right:14px;font-size:14px;opacity:0.2;color:#E1BEE7;letter-spacing:4px;transform:rotate(-4deg);"
       },
       {
-        name: "Rin",
-        tag: "err_404_self",
-        style: "Deconstructed kimono streetwear",
-        music: "Glitchy breakcore + traditional koto",
+        name: "Rin", tag: "err_404_self",
+        style: "Deconstructed kimono streetwear", music: "Glitchy breakcore + traditional koto",
         energy: "Sharp, playful, never explains their work",
         quote: "Destruction is just another form of creation",
-        bg: "#D81B60",
-        textColor: "#FCE4EC",
+        bg: "#D81B60", textColor: "#FCE4EC",
         decoText: "//",
         decoStyle: "top:50%;left:14px;font-size:18px;opacity:0.15;color:#F8BBD0;transform:rotate(90deg);"
       },
       {
-        name: "Amara",
-        tag: "bold by nature",
-        style: "Bold Ankara prints",
-        music: "Afrobeats she remixes with jazz samples",
+        name: "Amara", tag: "bold by nature",
+        style: "Bold Ankara prints", music: "Afrobeats she remixes with jazz samples",
         energy: "Magnetic, opinionated, always dancing",
         quote: "Every pattern tells a story you have to earn",
-        bg: "#EF6C00",
-        textColor: "#fff",
+        bg: "#EF6C00", textColor: "#fff",
         decoText: "◆",
         decoStyle: "top:12px;right:16px;font-size:28px;opacity:0.15;color:#fff;"
       }
     ];
 
-    // the generic version everyone turns into
     var generic = {
-      name: "content_creator",
-      tag: "",
-      style: "Clean minimal aesthetic",
-      music: "Trending sounds",
+      name: "content_creator", tag: "",
+      style: "Clean minimal aesthetic", music: "Trending sounds",
       energy: "Curated, optimized, algorithm-friendly",
       quote: "Link in bio",
-      bg: "#1E1E1E",
-      textColor: "#666"
+      bg: "#1E1E1E", textColor: "#666"
     };
 
     var currentIndex = 0;
     var swipeCount = 0;
     var totalSwipes = 24;
 
-    // returns 0 to 1 based on how far through the experience we are
     function getBlend() {
       return Math.min(1, swipeCount / (totalSwipes * 0.7));
     }
 
-    // mix two hex colors together by an amount (0 = first color, 1 = second color)
+    // mixes two colors together
     function mixColor(color1, color2, amount) {
       var c1 = color1.replace('#', '').slice(0, 6);
       var c2 = color2.replace('#', '').slice(0, 6);
-
       var r1 = parseInt(c1.slice(0, 2), 16);
       var g1 = parseInt(c1.slice(2, 4), 16);
       var b1 = parseInt(c1.slice(4, 6), 16);
-
       var r2 = parseInt(c2.slice(0, 2), 16);
       var g2 = parseInt(c2.slice(2, 4), 16);
       var b2 = parseInt(c2.slice(4, 6), 16);
-
       var r = Math.round(r1 + (r2 - r1) * amount);
       var g = Math.round(g1 + (g2 - g1) * amount);
       var b = Math.round(b1 + (b2 - b1) * amount);
-
-      return '#' + r.toString(16).padStart(2, '0') +
-             g.toString(16).padStart(2, '0') +
-             b.toString(16).padStart(2, '0');
+      return '#' + r.toString(16).padStart(2, '0') + g.toString(16).padStart(2, '0') + b.toString(16).padStart(2, '0');
     }
 
-    // render the current card
     function showCard() {
       var person = people[currentIndex];
       var t = getBlend();
       var card = document.getElementById('card');
 
-      // blend the colors toward generic
       var bg = mixColor(person.bg, generic.bg, t);
       var textColor = mixColor(person.textColor, generic.textColor, t);
 
-      // swap text at different thresholds so it doesnt all change at once
+      // swap text at different points
       var name = t > 0.85 ? generic.name : person.name;
       var tag = t > 0.7 ? generic.tag : person.tag;
       var style = t > 0.65 ? generic.style : person.style;
@@ -208,14 +168,15 @@
       var energy = t > 0.5 ? generic.energy : person.energy;
       var quote = t > 0.7 ? generic.quote : person.quote;
 
-      // the little decoration fades out
       var decoOpacity = Math.max(0, 1 - t * 1.5);
 
-      // set card background
       card.style.background = bg;
       card.style.border = '1px solid ' + mixColor(person.bg, '#2A2A2A', t);
 
-      // build the card html
+      // blur gets stronger as cards get more generic
+      var blur = t > 0.3 ? (t - 0.3) * 2 : 0;
+      card.style.filter = 'blur(' + blur + 'px)';
+
       card.innerHTML = ''
         + '<div class="card-deco" style="' + person.decoStyle + 'opacity:' + (decoOpacity * 0.15) + ';">' + person.decoText + '</div>'
         + '<div class="card-tag" style="color:' + textColor + ';opacity:' + (0.5 - t * 0.4) + ';">' + tag + '</div>'
@@ -228,7 +189,7 @@
         + '</div>'
         + '<div class="card-quote" style="color:' + textColor + ';border-top:1px solid ' + textColor + '22;opacity:' + (0.7 - t * 0.3) + ';">"' + quote + '"</div>';
 
-      // update the status message
+      // status text
       var status = document.getElementById('status');
       if (t < 0.3) {
         status.textContent = 'everyone is unique';
@@ -244,40 +205,33 @@
         status.style.color = '#333';
       }
 
-      // update counter
       document.getElementById('counter').textContent = swipeCount + ' / ' + totalSwipes;
     }
 
-    // next card button
     function nextCard() {
       swipeCount++;
       currentIndex = (currentIndex + 1) % people.length;
-
-      // if we've gone through all swipes, show end screen
       if (swipeCount >= totalSwipes) {
         document.getElementById('card-screen').style.display = 'none';
         document.getElementById('end-screen').style.display = 'flex';
         return;
       }
-
       showCard();
     }
 
-    // start button
     function start() {
       document.getElementById('intro').style.display = 'none';
       document.getElementById('card-screen').style.display = 'flex';
       showCard();
     }
 
-    // reset button on end screen
     function reset() {
       swipeCount = 0;
       currentIndex = 0;
       document.getElementById('end-screen').style.display = 'none';
       document.getElementById('intro').style.display = 'block';
     }
-  </script>
 
+  </script>
 </body>
 </html>
